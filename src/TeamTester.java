@@ -179,7 +179,23 @@ public class TeamTester {
    * @return true if agent remains stationary when no destination is set; false otherwise
    */
   public static boolean testAgentStationary() {
-    return false;
+      int x = 0;
+      int y = 0;
+      Agent a1 = new Agent(x, y);
+      if (a1.getX() != x){ // unexpected behavior before move
+        return false;
+      }
+      if (a1.getY() != y){ // unexpected behavior before move
+        return false;
+      }
+      a1.move();
+      if (a1.getX() != x){ // unexpected behavior after move
+        return false;
+      }
+      if (a1.getY() != y){ // unexpected behavior after move
+        return false;
+      }
+    return true;
   }
   /**
    * Verifies that creating a Team with multiple Leads throws an IllegalArgumentException.
