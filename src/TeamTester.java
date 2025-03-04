@@ -220,7 +220,9 @@ public class TeamTester {
    * - Add at least one Agent to the ArrayList and create a valid team
    * - Remove all agents from the team
    * - Verify that the Team's size is now zero
-   * @return
+   * @return true if test passes, false otherwise
+   *
+   * //TODO: Check what original return was
    */
   public static boolean testEmptyTeam() {
     return false;
