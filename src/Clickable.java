@@ -1,14 +1,14 @@
 public interface Clickable {
-    public void draw() {
+    private void draw() {
 
     }
-    public boolean isMouseOver() {
+    private boolean isMouseOver() {
 
     }
-    public void mouseReleased() {
+    private void mouseReleased() {
 
     }
-    public void mousePressed() {
+    private void mousePressed() {
 
     }
 }
