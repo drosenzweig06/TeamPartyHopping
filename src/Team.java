@@ -79,6 +79,7 @@ public class Team {
             return 0;
         }
         //NEEDS WORK
+        return 0;
     }
     /**
      * Finds the "center" y-coordinate of this team, defined as being halfway between the
@@ -91,6 +92,7 @@ public class Team {
             return 0;
         }
         //NEEDS WORK
+        return 0;
     }
     /**
      * Accessor method for the color value of this team
@@ -122,7 +124,7 @@ public class Team {
      * @return true if this team currently has a Lead member, false otherwise
      */
     public boolean hasLead() {
-
+        return false;
     }
     /**
      * Checks whether ALL members of a team have been selected
@@ -130,7 +132,7 @@ public class Team {
      * @return true if ALL members of this team are active, false otherwise
      */
     public boolean isActive() {
-
+        return false;
     }
     /**
      * Updates the destination of all team members so that the team formation becomes a line
