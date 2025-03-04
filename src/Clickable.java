@@ -28,13 +28,11 @@ public interface Clickable {
         }
         return false;
     }
-
     /**
      * Implements the behavior to be run each time the mouse is released
      */
     private void mouseReleased() {
     }
-
     /**
      * Implements the behavior to be run each time the mouse is pressed
      */

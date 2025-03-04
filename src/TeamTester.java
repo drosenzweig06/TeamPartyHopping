@@ -24,12 +24,10 @@
 // Online Sources:
 //
 ///////////////////////////////////////////////////////////////////////////////
-
 /**
  * A short tester class for verifying some of the Agent and Team behaviors in P05.
  */
 public class TeamTester {
-  
   /**
    * Verifies that an Agent’s initial position is set correctly upon creation.
    * 
@@ -62,10 +60,8 @@ public class TeamTester {
     //TODO: check about originalX, originalY, if needed for this
     return true;
   }
-  
   /**
    * Verifies that an Agent moves correctly when given a destination.
-   * 
    * This test should:
    * - Create an agent at a known position
    * - Set a destination that is at least 10 pixels away in both x and y directions
@@ -166,7 +162,6 @@ public class TeamTester {
     }
     return true;
   }
-  
   /**
    * Verifies that an Agent without a destination remains stationary.
    * 
@@ -181,7 +176,6 @@ public class TeamTester {
   public static boolean testAgentStationary() {
     return false;
   }
-  
   /**
    * Verifies that creating a Team with multiple Leads throws an IllegalArgumentException.
    * 
@@ -195,7 +189,6 @@ public class TeamTester {
   public static boolean testMultipleLeadsException() {
     return false;
   }
-  
   /**
    * Verifies behavior around empty teams.
    * 
@@ -211,7 +204,6 @@ public class TeamTester {
   public static boolean testEmptyTeam() {
     return false;
   }
-  
   /**
    * Verifies that a Team can be created successfully with exactly one Lead.
    * 
@@ -228,7 +220,6 @@ public class TeamTester {
   public static boolean testValidTeamCreation() {
     return false;
   }
-
   /**
    * Verifies that a new Agent can be added to an existing Team.
    * 
@@ -244,7 +235,6 @@ public class TeamTester {
   public static boolean testAddAgentToTeam() {
     return false;
   }
-  
   /**
    * Verifies that Team’s center coordinates are calculated correctly.
    * 
@@ -259,7 +249,6 @@ public class TeamTester {
   public static boolean testTeamCenter() {
     return false;
   }
-
   /**
    * Runs all tests and displays results
    * @param args unused
