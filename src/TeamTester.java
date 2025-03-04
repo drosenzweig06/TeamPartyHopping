@@ -24,6 +24,11 @@
 // Online Sources:
 //
 ///////////////////////////////////////////////////////////////////////////////
+import java.io.File;
+import processing.core.PImage;
+import processing.core.PApplet;
+import java.util.ArrayList;
+import java.util.Random;
 /**
  * A short tester class for verifying some of the Agent and Team behaviors in P05.
  */

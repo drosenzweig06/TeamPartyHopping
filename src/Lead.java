@@ -1,3 +1,8 @@
+import java.io.File;
+import processing.core.PImage;
+import processing.core.PApplet;
+import java.util.ArrayList;
+import java.util.Random;
 /**
  * Models a Team Lead agent for the CS300 P05 Team Party Hopping project.
  * Every Team can have at most one Lead, and clicking on that Team's Lead

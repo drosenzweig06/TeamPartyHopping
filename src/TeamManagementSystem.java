@@ -24,9 +24,11 @@
 // Online Sources:
 //
 ///////////////////////////////////////////////////////////////////////////////
+import java.io.File;
+import processing.core.PImage;
+import processing.core.PApplet;
 import java.util.ArrayList;
 import java.util.Random;
-import processing.core.PApplet;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // IMPORTANT NOTE: Completing this class will be MOST EFFICIENT if you have already written at least

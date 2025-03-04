@@ -1,3 +1,8 @@
+import java.io.File;
+import processing.core.PImage;
+import processing.core.PApplet;
+import java.util.ArrayList;
+import java.util.Random;
 /**
  * This class models a Party for CS300 P05 Team Party Hopping, similarly to P02.
  * However, unlike P02 we will send Agents to a Party by clicking on it,
