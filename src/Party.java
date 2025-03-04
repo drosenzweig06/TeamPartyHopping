@@ -31,13 +31,17 @@ public class Party extends Object implements Clickable{
      * @param image - the image representing this Party
      */
     public Party(int x, int y, processing.core.PImage image) {
-
+        this.x = x;
+        this.y = y;
+        this.image = image;
     }
     /**
      * Draws the image associated with this party to its (x,y) location
      */
     public void draw() {
-
+        if(tms != null && image != null) {
+            tms.image(image, x, y);
+        }
     }
     /**
      * Accessor method for the current x-coordinate of this Party
@@ -62,13 +66,16 @@ public class Party extends Object implements Clickable{
      * false otherwise.
      */
     public boolean isMouseOver() {
-
+        if(tms == null || image == null) {
+            return false;
+        }
+        //KEEP WORKING ON
     }
     /**
      * This method is required by the Clickable interface, but does nothing
      */
     public void mousePressed() {
-
+        //THIS METHOD IS INTENTIONALLY LEFT EMPTY
     }
     /**
      * Defines the behavior of this Party when the mouse is released.
@@ -85,6 +92,6 @@ public class Party extends Object implements Clickable{
      *                  this program's application window
      */
     public static void setProcessing(TeamManagementSystem processing) {
-
+        tms = processing;
     }
 }

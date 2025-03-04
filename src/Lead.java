@@ -11,6 +11,7 @@ public class Lead extends Agent {
      * @param y - the y-position of this Lead
      */
     public Lead(int x, int y) {
+        super(x, y);
     }
     /**
      * Annotates a Lead's agent representation by drawing an inverted black triangle
