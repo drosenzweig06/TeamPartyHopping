@@ -1,9 +1,19 @@
 import processing.core.PApplet;
-
+/**
+ * This interface models Clickable objects in a graphic application
+ */
 public interface Clickable {
+    /**
+     * Renders the clickable object to the application window
+     */
     private void draw() {
 
     }
+    /**
+     * Determines whether the cursor is currently over this object
+     *
+     * @return true if the cursor is over the object, false otherwise
+     */
     private boolean isMouseOver() {
         float agentX = agent.getX();
         float agentY = agent.getY();
@@ -18,9 +28,16 @@ public interface Clickable {
         }
         return false;
     }
-    private void mouseReleased() {
 
+    /**
+     * Implements the behavior to be run each time the mouse is released
+     */
+    private void mouseReleased() {
     }
+
+    /**
+     * Implements the behavior to be run each time the mouse is pressed
+     */
     private void mousePressed() {
 
     }
