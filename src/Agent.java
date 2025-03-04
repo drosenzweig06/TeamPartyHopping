@@ -110,7 +110,7 @@ public class Agent extends Object implements Clickable {
             move();
         }
         processing.fill(getColor());
-        processing.ellipse(xPos, yPos, diameter, diameter);
+        processing.circle(xPos, yPos, diameter);
     }
     /**
      * Helper method to determine the color to use for drawing this agent: When active,
@@ -209,7 +209,71 @@ public class Agent extends Object implements Clickable {
             destX = -1;
             destY = -1;
         }
-        //TODO: check what 3 units means
+        else {
+            float dx = destX - xPos;
+            float dy = destY - yPos;
+            // twelve possible ways agent can move 3 units, directions of hours on a clock
+            // I made it so only moves right/left or up/down when dy/dx == 0
+            // otherwise, x value will change 2 and y value will change 1
+            // or x value will change 1 and y value will change 2
+            if (dy == 0){//no change in y, only in x
+                if (dx > 0 ){//should move right 3
+                    xPos += 3;
+                }
+                else {//should move left 3. NO CASES WHERE dy==0 and dx==0 bc then distance < 3
+                    xPos -= 3;
+                }
+            }
+            else if (dx == 0){//no change in x, only in y
+                if (dy > 0 ){//should move up 3
+                    yPos += 3;
+                }
+                else {//should move down 3. NO CASES WHERE dy==0 and dx==0 bc then distance < 3
+                    yPos -= 3;
+                }
+            }
+            else if (Math.abs(dy) > Math.abs(dx)){//dy should be greater, therefore dy = 2
+                if (dy > 0){ // should move up two
+                    yPos += 2;
+                    if (dx > 0){ // should move right one
+                        xPos += 1;
+                    }
+                    else{ // should move left one
+                        xPos -= 1;
+                    }
+                }
+                else { // should move down two
+                    yPos -= 2;
+                    if (dx > 0){ // should move right one
+                        xPos += 1;
+                    }
+                    else { //should move left one
+                        xPos -= 1;
+                    }
+                }
+            }
+            else {//dx should be greater, or they are the same, therefore dx = 2
+                if (dy > 0){ // should move up one
+                    yPos += 1;
+                    if (dx > 0){ // should move right two
+                        xPos += 2;
+                    }
+                    else { // should move left two
+                        xPos -= 2;
+                    }
+                }
+                else { // should move down one
+                    yPos -= 1;
+                    if (dx > 0) { // should move right two
+                        xPos += 2;
+                    }
+                    else { // should move left two
+                        xPos -= 2;
+                    }
+                }
+            }
+
+        }
     }
     /**
      * Sets the destination coordinates of this agent to be the provided values
