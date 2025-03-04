@@ -75,6 +75,7 @@ public class Party extends Object implements Clickable{
             return false;
         }
         //KEEP WORKING ON
+        return false;
     }
     /**
      * This method is required by the Clickable interface, but does nothing
