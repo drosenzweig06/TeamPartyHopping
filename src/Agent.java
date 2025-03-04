@@ -1,5 +1,5 @@
 /**
- * This class Models an Agent for the CS300 P05 Team Party Hopping project
+ * This class models an Agent for the CS300 P05 Team Party Hopping project
  * Note: the methods that are listed as protected in this documentation are
  * intended to be helper methods, for use only inside the class.
  * They are listed as protected for testing purposes.
