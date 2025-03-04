@@ -16,7 +16,26 @@ public class TeamTester {
    * @return true if both agents are created with correct coordinates; false otherwise
    */
   public static boolean testAgentInitialPosition() {
-    return false;
+    int x1 = 4;
+    int y1 = 5;
+    Agent agent1 = new Agent(x1, y1);
+    int x2 = 1;
+    int y2 = 2;
+    Agent agent2 = new Agent(x2, y2);
+    if (agent1.getX() != x1){//unexpected behavior
+      return false;
+    }
+    if (agent1.getY() != y1){//unexpected behavior
+      return false;
+    }
+    if (agent2.getX() != x2){//unexpected behavior
+      return false;
+    }
+    if (agent2.getY() != y2){//unexpected behavior
+      return false;
+    }
+    //TODO: check about originalX, originalY, if needed for this
+    return true;
   }
   
   /**
@@ -32,7 +51,95 @@ public class TeamTester {
    * @return true if agent movement behavior is correct; false otherwise
    */
   public static boolean testAgentMovement() {
-    return false;
+    //Test scenario 1: should move up two pixels and right one pixel
+    {
+      int x = 0;
+      int y = 0;
+      Agent a1 = new Agent(x, y);
+      float x1 = 12;
+      float y1 = 24;
+      a1.setDestination(x1, y1);
+      double dist1 = Math.sqrt(Math.pow((x1 - a1.getX()), 2) + Math.pow((y1 - a1.getY()), 2));
+      a1.move();
+      double dist2 = Math.sqrt(Math.pow((x1 - a1.getX()), 2) + Math.pow((y1 - a1.getY()), 2));
+      if (dist2 >= dist1 || dist2 == 0){ //unexpected behavior - didn't move closer or reached it
+        return false;
+      }
+      //Expected trajectory is up two pixels and right one pixel
+      if (a1.getY() != 2){//unexpected behavior - didn't move up two pixels
+        return false;
+      }
+      if (a1.getX() != 1){//unexpected behavior - didn't move right one pixel
+        return false;
+      }
+    }
+    //Test scenario 2: should move right two pixels and down one pixel
+    {
+      int x = 0;
+      int y = 0;
+      Agent a1 = new Agent(x, y);
+      float x1 = 24;
+      float y1 = -12;
+      a1.setDestination(x1, y1);
+      double dist1 = Math.sqrt(Math.pow((x1 - a1.getX()), 2) + Math.pow((y1 - a1.getY()), 2));
+      a1.move();
+      double dist2 = Math.sqrt(Math.pow((x1 - a1.getX()), 2) + Math.pow((y1 - a1.getY()), 2));
+      if (dist2 >= dist1 || dist2 == 0){ //unexpected behavior - didn't move closer or reached it
+        return false;
+      }
+      //Expected trajectory is right two pixels and down one pixel
+      if (a1.getX() != 2){//unexpected behavior - didn't move right two pixels
+        return false;
+      }
+      if (a1.getY() != -1){//unexpected behavior - didn't move down one pixel
+        return false;
+      }
+    }
+    //Test scenario 3: should move down two pixels and left one pixel
+    {
+      int x = 0;
+      int y = 0;
+      Agent a1 = new Agent(x, y);
+      float x1 = -12;
+      float y1 = -24;
+      a1.setDestination(x1, y1);
+      double dist1 = Math.sqrt(Math.pow((x1 - a1.getX()), 2) + Math.pow((y1 - a1.getY()), 2));
+      a1.move();
+      double dist2 = Math.sqrt(Math.pow((x1 - a1.getX()), 2) + Math.pow((y1 - a1.getY()), 2));
+      if (dist2 >= dist1 || dist2 == 0){ //unexpected behavior - didn't move closer or reached it
+        return false;
+      }
+      //Expected trajectory is down two pixels and left one pixel
+      if (a1.getY() != -2){//unexpected behavior - didn't move down two pixels
+        return false;
+      }
+      if (a1.getX() != -1){//unexpected behavior - didn't move left one pixel
+        return false;
+      }
+    }
+    //Test scenario 4: should move left two pixels and up one pixel
+    {
+      int x = 0;
+      int y = 0;
+      Agent a1 = new Agent(x, y);
+      float x1 = -24;
+      float y1 = 12;
+      a1.setDestination(x1, y1);
+      double dist1 = Math.sqrt(Math.pow((x1 - a1.getX()), 2) + Math.pow((y1 - a1.getY()), 2));
+      a1.move();
+      double dist2 = Math.sqrt(Math.pow((x1 - a1.getX()), 2) + Math.pow((y1 - a1.getY()), 2));
+      if (dist2 >= dist1 || dist2 == 0){ //unexpected behavior - didn't move closer or reached it
+        return false;
+      }
+      //Expected trajectory is left two pixels and up one pixel
+      if (a1.getX() != -2){//unexpected behavior - didn't move left two pixels
+        return false;
+      }
+      if (a1.getY() != 1){//unexpected behavior - didn't move up one pixel
+        return false;
+      }
+    }
+    return true;
   }
   
   /**

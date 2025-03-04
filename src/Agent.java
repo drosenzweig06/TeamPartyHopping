@@ -162,7 +162,7 @@ public class Agent extends Object implements Clickable {
      * @return true if the mouse is over this agent, false otherwise
      */
     public boolean isMouseOver() {
-        return false; //TODO: change
+    return false; //TODO: change
     }
     /**
      * Helper method, reports whether this Agent is currently moving.
@@ -258,7 +258,6 @@ public class Agent extends Object implements Clickable {
      * if false, makes it true; if true, makes it false.
      */
     public void toggleActive() {
-        isActive = !isActive;
+    isActive = !isActive;
     }
 }
-//
