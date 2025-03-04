@@ -1,4 +1,29 @@
-// TODO: add file header
+//////////////// FILE HEADER (INCLUDE IN EVERY FILE) //////////////////////////
+//
+// Title:    TeamManagementSystem
+// Course:   CS 300 Spring 2025
+//
+// Author:   Thomas Koltermann
+// Email:    tpkoltermann@wisc.edu
+// Lecturer: Mouna Kacem
+//
+//////////////////// PAIR PROGRAMMERS COMPLETE THIS SECTION ///////////////////
+//
+// Partner Name:    Daniel Rosenzweig
+// Partner Email:   drosenzweig@wisc.edu
+// Partner Lecturer's Name: Mouna Kacem
+//
+// VERIFY THE FOLLOWING BY PLACING AN X NEXT TO EACH TRUE STATEMENT:
+//   _X_ Write-up states that pair programming is allowed for this assignment.
+//   _X_ We have both read and understand the course Pair Programming Policy.
+//   _X_ We have registered our team prior to the team registration deadline.
+//
+//////////////////////// ASSISTANCE/HELP CITATIONS ////////////////////////////
+//
+// Persons:         Lectures by Mouna Kacem
+// Online Sources:
+//
+///////////////////////////////////////////////////////////////////////////////
 
 import java.util.ArrayList;
 import java.util.Random;
