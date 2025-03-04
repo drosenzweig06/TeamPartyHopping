@@ -43,3 +43,4 @@ public class Party extends Object implements Clickable{
         tms = processing;
     }
 }
+//

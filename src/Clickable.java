@@ -9,6 +9,6 @@ public interface Clickable {
 
     }
     private void mousePressed() {
-
+//
     }
 }
