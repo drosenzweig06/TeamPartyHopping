@@ -90,8 +90,8 @@ public class Agent extends Object implements Clickable {
      * correctly while being dragged.
      */
     protected void drag() {
-        float dx = processing.mouseX - xPos;
-        float dy = processing.mouseY - yPos;
+        int dx = processing.mouseX - oldMouseX;
+        int dy = processing.mouseY - oldMouseY;
         xPos += dx;
         yPos += dy;
         oldMouseX = processing.mouseX;
