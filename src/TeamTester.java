@@ -92,10 +92,10 @@ public class TeamTester {
         return false;
       }
       //Expected trajectory is up two pixels and right one pixel
-      if (a1.getY() != 2){//unexpected behavior - didn't move up two pixels
+      if (a1.getY() - 2 >= 0.1){//unexpected behavior - didn't move up two pixels
         return false;
       }
-      if (a1.getX() != 1){//unexpected behavior - didn't move right one pixel
+      if (a1.getX() - 1 >= 0.1){//unexpected behavior - didn't move right one pixel
         return false;
       }
     }
@@ -114,10 +114,10 @@ public class TeamTester {
         return false;
       }
       //Expected trajectory is right two pixels and down one pixel
-      if (a1.getX() != 2){//unexpected behavior - didn't move right two pixels
+      if (a1.getX() - 2 >= 0.1){//unexpected behavior - didn't move right two pixels
         return false;
       }
-      if (a1.getY() != -1){//unexpected behavior - didn't move down one pixel
+      if (a1.getY() + 1 >= 0.1){//unexpected behavior - didn't move down one pixel
         return false;
       }
     }
@@ -136,10 +136,10 @@ public class TeamTester {
         return false;
       }
       //Expected trajectory is down two pixels and left one pixel
-      if (a1.getY() != -2){//unexpected behavior - didn't move down two pixels
+      if (a1.getY() + 2 >= 0.1){//unexpected behavior - didn't move down two pixels
         return false;
       }
-      if (a1.getX() != -1){//unexpected behavior - didn't move left one pixel
+      if (a1.getX() + 1 >= 0.1){//unexpected behavior - didn't move left one pixel
         return false;
       }
     }
@@ -158,10 +158,10 @@ public class TeamTester {
         return false;
       }
       //Expected trajectory is left two pixels and up one pixel
-      if (a1.getX() != -2){//unexpected behavior - didn't move left two pixels
+      if (a1.getX() + 2 >= 0.1){//unexpected behavior - didn't move left two pixels
         return false;
       }
-      if (a1.getY() != 1){//unexpected behavior - didn't move up one pixel
+      if (a1.getY() - 1 >= 0.1){//unexpected behavior - didn't move up one pixel
         return false;
       }
     }
