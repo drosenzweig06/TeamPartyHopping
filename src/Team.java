@@ -59,7 +59,7 @@ public class Team {
      * @throws IllegalStateException - if the agent is a Lead that is not already
      * present in the list
      */
-    public void addMember(Agent a) {
+    public void addMember(Agent a) throws IllegalStateException {
         if(a != null && !members.contains(a)) {
             members.add(a);
         }

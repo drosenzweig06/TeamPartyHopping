@@ -313,8 +313,8 @@ public class Agent extends Object implements Clickable {
      * @param processing - a reference to the PApplet object representing
      *                   this program's application window
      */
-    public void setProcessing(processing.core.PApplet processing) {
-        this.processing = processing;
+    public static void setProcessing(processing.core.PApplet processing) {
+        Agent.processing = processing;
     }
     /**
      * Sets the team of this agent to be the provided value. If this agent was already a member
