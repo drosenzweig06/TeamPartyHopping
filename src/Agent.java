@@ -106,11 +106,13 @@ public class Agent extends Object implements Clickable {
     public void draw() {
         if(isDragging) {
             drag();
-        } else if(isMoving()) {
+        }
+        if (!(destX == 0 && destY == 0)) {
             move();
         }
         processing.fill(getColor());
-        processing.circle(xPos, yPos, diameter);
+        processing.noStroke();
+        processing.ellipse(xPos, yPos, diameter, diameter);
     }
     /**
      * Helper method to determine the color to use for drawing this agent: When active,
