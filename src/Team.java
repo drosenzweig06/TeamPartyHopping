@@ -38,13 +38,13 @@ public class Team {
         if (agents == null || agents.isEmpty()) {
             throw new IllegalArgumentException("Cant have null or no agents");
         }
-        for (int i = 0; i < members.size(); i++){
-            if(members.get(i) instanceof Lead){
+        for(int i = 0; i < members.size(); i++) {
+            if(members.get(i) instanceof Lead) {
                 count++;
             }
         }
-        if (color > 1){
-            throw new IllegalStateException("Cant have more than one lead");
+        if(count > 1) {
+         throw new IllegalStateException("Cant have more than one lead");
         }
         this.color = color;
         this.members = new ArrayList<>(agents);
@@ -84,8 +84,17 @@ public class Team {
         if(members.isEmpty()) {
             return 0;
         }
-        //NEEDS WORK
-        return 0;
+        float minX = members.get(0).getX();
+        float maxX = members.get(0).getX();
+        for(int i = 0; i < members.size(); i++) {
+            if(members.get(i).getX() < minX) {
+                minX = members.get(i).getX();
+            }
+            if(members.get(i).getX() > maxX) {
+                maxX = members.get(i).getX();
+            }
+        }
+        return (minX+maxX)/2;
     }
     /**
      * Finds the "center" y-coordinate of this team, defined as being halfway between the
@@ -97,8 +106,17 @@ public class Team {
         if(members.isEmpty()) {
             return 0;
         }
-        //NEEDS WORK
-        return 0;
+        float minY = members.get(0).getY();
+        float maxY = members.get(0).getY();
+        for(int i = 0; i < members.size(); i++) {
+            if(members.get(i).getY() < minY) {
+                minY = members.get(i).getY();
+            }
+            if(members.get(i).getY() > maxY) {
+                maxY = members.get(i).getY();
+            }
+        }
+        return (minY+maxY)/2;
     }
     /**
      * Accessor method for the color value of this team
@@ -143,7 +161,12 @@ public class Team {
      * @return true if ALL members of this team are active, false otherwise
      */
     public boolean isActive() {
-        return false;
+        for(int i = 0; i < members.size(); i++) {
+            if(!members.get(i).isActive()) {
+                return false;
+            }
+        }
+        return true;
     }
     /**
      * Updates the destination of all team members so that the team formation becomes a line
@@ -166,13 +189,21 @@ public class Team {
      * @return true if the agent was removed from the team successfully, false otherwise
      */
     public boolean removeMember(Agent a) {
-        return members.remove(a);
+        if(members.contains(a)) {
+            members.remove(a);
+            return true;
+        }
+        return false;
     }
     /**
      * Activates ALL members of this team
      */
     public void selectAll() {
-
+        for(int i = 0; i < members.size(); i++) {
+            if(!members.get(i).isActive()) {
+                members.get(i).toggleActive();
+            }
+        }
     }
 
     /**
@@ -182,6 +213,9 @@ public class Team {
      * @param p - the party to move the team to
      */
     public void sendToParty(Party p) {
-
+        for(int i = 0; i < members.size(); i++) {
+            members.get(i).setDestination(members.get(i).getX() + (p.getX()-getCenterX()),
+                    members.get(i).getY() + (p.getY())-getCenterY());
+        }
     }
 }

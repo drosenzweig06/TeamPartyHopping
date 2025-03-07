@@ -110,7 +110,13 @@ public class TeamManagementSystem extends PApplet {
   
   public void clearEmptyTeams() {
     // TODO #10 implement this method - remove all teams with NO members from the teams list
-
+    ArrayList<Team> nonempty = new ArrayList<>();
+    for(Team team:teams) {
+      if(team.getTeamSize() > 0) {
+        nonempty.add(team);
+      }
+    }
+    teams = nonempty;
   }
   
   public void drawSelectionBox() {
@@ -147,6 +153,17 @@ public class TeamManagementSystem extends PApplet {
   
   @Override
   public void mouseReleased() {
+    if(isSelecting) {
+      Team selectedTeam = detectTeam();
+      if(selectedTeam == null) {
+        createTeam(getAllSelectedAgents());
+      }
+      isSelecting = false;
+    }
+    clearEmptyTeams();
+    for(int i = 0; i < objects.size(); i++) {
+      objects.get(i).mouseReleased();
+    }
     // TODO #17 if the user is creating a selection box:
       // (1) determine whether all selected agents belong to a single team (see helper method below)
       // (2) if they do not, create a team out of the selected agents (see helper method below)
@@ -176,6 +193,12 @@ public class TeamManagementSystem extends PApplet {
   }
   
   public void createTeam(ArrayList<Agent> selected) {
+    if(selected.isEmpty()){
+      return;
+    }
+    int teamcolor = color(randGen.nextInt(256), randGen.nextInt(256), randGen.nextInt(256));
+    Team a = new Team(teamcolor, selected);
+    teams.add(a);
     // TODO #25 if no agents were selected, end the method
     // TODO #26 generate a random color for this team with R, G, and B values between 0 and 255
     // TODO #27 attempt to create a new team using the selected agents and this color
@@ -184,6 +207,20 @@ public class TeamManagementSystem extends PApplet {
   
   @Override
   public void keyPressed() {
+    if(key == '.') {
+      objects.add(new Agent(mouseX, mouseY));
+    } else if(key == ',') {
+      objects.add(new Lead(mouseX, mouseY));
+    } else if(key == 'r') {
+      if()
+    } else {
+      for(Team team : teams) {
+        if(Character.toLowerCase(key) == Character.toLowerCase(team.getTeamID())) {
+          team.lineUp();
+          break;
+        }
+      }
+    }
     // TODO #29 if the key is a '.', add a normal agent at the mouse's current location
     // TODO #30 if the key is a ',', add a team lead at the mouse's current location
     // TODO #31 if the key is an 'r' and the mouse is over an agent, remove that agent
@@ -195,6 +232,11 @@ public class TeamManagementSystem extends PApplet {
   public Team getActiveTeam() {
     // TODO #33 find the first team in the teams list with all members active and return it
     // TODO #34 if no team has all members active, return null
+    for (Team team : teams) {
+      if (team.isActive()) {
+        return team;
+      }
+    }
     return null;
   }
 
