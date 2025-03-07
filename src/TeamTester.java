@@ -378,20 +378,20 @@ public class TeamTester {
     Agent a3 = new Agent(x3, y3);
     members.add(a3);
     Team t = new Team(0, members);
-    if (t.getCenterX() != 10){ // unexpected behavior
+    if (t.getCenterX() != (x1 + x2 + x3) / (float) t.getTeamSize()){ // unexpected behavior
       return false;
     }
-    if (t.getCenterY() != 20){ // unexpected behavior
+    if (t.getCenterY() != (y1 + y2 + y3) / (float) t.getTeamSize()){ // unexpected behavior
       return false;
     }
     int x4 = 30;
     int y4 = 60;
     Agent a4 = new Agent(x4, y4);
     t.addMember(a4);
-    if (t.getCenterX() != 15){ // unexpected behavior
+    if (t.getCenterX() != (x1 + x2 + x3 + x4) / (float) t.getTeamSize()){ // unexpected behavior
       return false;
     }
-    if (t.getCenterY() != 30){ // unexpected behavior
+    if (t.getCenterY() != (y1 + y2 + y3 + y4) / (float) t.getTeamSize()){ // unexpected behavior
       return false;
     }
     return true;
