@@ -24,7 +24,20 @@ public class Lead extends Agent {
      */
     @Override
     public void draw() {
-
+        super.draw();
+        processing.fill(0);
+        double doubleX1 = getX() - diameter/3.0;
+        float x1 = (float) doubleX1;
+        double doubleY1 = getY() - diameter/5.0;
+        float y1 = (float) doubleY1;
+        double doubleX2 = getX() + diameter/3.0;
+        float x2 = (float) doubleX2;
+        double doubleY2 = getY() - diameter/5.0;
+        float y2 = (float) doubleY2;
+        float x3 = getX();
+        double doubleY3 = getY() + diameter/3.0;
+        float y3 = (float) doubleY3;
+        processing.triangle(x1, y1, x2, y2, x3, y3);
     }
     /**
      * Defines the specific behavior of this team lead when the mouse is released.
@@ -33,6 +46,12 @@ public class Lead extends Agent {
      */
     @Override
     public void mouseReleased() {
-
+        super.mouseReleased();
+        if (this.isActive()){
+            if (this.getTeam() != null) {
+                Team t = this.getTeam();
+                t.selectAll();
+            }
+        }
     }
 }
