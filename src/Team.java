@@ -184,7 +184,7 @@ public class Team {
         float space = Agent.diameter() + 3;
         float totalWidth = space * size - 3;
         float startX = centerX - totalWidth / 2;
-        for (int i = 0; i < size(); i++) {
+        for (int i = 0; i < size; i++) {
             Agent a1 = members.get(i);
             float destX = startX + i * space + Agent.diameter() / 2.0f;
             float destY = centerY;
