@@ -38,8 +38,8 @@ public class Team {
         if (agents == null || agents.isEmpty()) {
             throw new IllegalArgumentException("Cant have null or no agents");
         }
-        for(int i = 0; i < members.size(); i++) {
-            if(members.get(i) instanceof Lead) {
+        for(int i = 0; i < agents.size(); i++) {
+            if(agents.get(i) instanceof Lead) {
                 count++;
             }
         }

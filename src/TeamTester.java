@@ -207,11 +207,30 @@ public class TeamTester {
    * @return true if the correct exception is thrown; false otherwise
    */
   public static boolean testMultipleLeadsException() {
-    return false;
+    try {
+      ArrayList<Agent> members = new ArrayList<>();
+      int x1 = 0;
+      int y1 = 0;
+      Agent a1 = new Lead(x1, y1);
+      members.add(a1);
+      int x2 = 50;
+      int y2 = 50;
+      Agent a2 = new Lead(x2, y2);
+      members.add(a2);
+      Team t = new Team(0, members);
+      return false; //IllegalStateException not thrown
+    }
+    catch (IllegalStateException e){
+      if (!e.getMessage().equals("Cant have more than one lead")){//unexpected behavior
+        return false;
+      }
+      else {
+        return true;
+      }
+    }
   }
   /**
    * Verifies behavior around empty teams.
-   * 
    * This test should:
    * - Create an empty ArrayList
    * - Attempt to create a Team with this ArrayList
@@ -220,11 +239,34 @@ public class TeamTester {
    * - Remove all agents from the team
    * - Verify that the Team's size is now zero
    * @return true if test passes, false otherwise
-   *
-   * //TODO: Check what original return was
    */
   public static boolean testEmptyTeam() {
-    return false;
+    ArrayList<Agent> members = new ArrayList<>();
+    try {
+      Team t = new Team (0, members);
+      return false; // IllegalStateException not thrown
+    }
+    catch (IllegalArgumentException e) {
+      if (!e.getMessage().equals("Cant have null or no agents")){ //unexpected behavior
+        return false;
+      }
+      int x1 = 20;
+      int y1 = 40;
+      Agent a1 = new Agent(x1, y1);
+      members.add(a1);
+      int x2 = 40;
+      int y2 = 50;
+      Agent a2 = new Agent(x2, y2);
+      members.add(a1);
+      members.add(a2);
+      Team t = new Team(0, members);
+      t.removeMember(a1);
+      t.removeMember(a2);
+      if (t.getTeamSize() != 0){ //unexpected behavior
+        return false;
+      }
+      return true;
+    }
   }
   /**
    * Verifies that a Team can be created successfully with exactly one Lead.
@@ -240,7 +282,38 @@ public class TeamTester {
    * @return true if Team creation succeeds with correct composition; false otherwise
    */
   public static boolean testValidTeamCreation() {
-    return false;
+    ArrayList<Agent> members = new ArrayList<>();
+    int x1 = 0;
+    int y1 = 0;
+    Agent a1 = new Lead(x1, y1);
+    members.add(a1);
+    int x2 = 20;
+    int y2 = 40;
+    Agent a2 = new Agent(x2, y2);
+    members.add(a2);
+    int x3 = 40;
+    int y3 = 50;
+    Agent a3 = new Agent(x3, y3);
+    members.add(a3);
+    try {
+      Team t = new Team(0, members);
+      if (t.getTeamSize() != members.size()){ // unexpected behavior
+        return false;
+      }
+      if (!t.contains(a1) || !t.contains(a2) || !t.contains(a3)) { // unexpected behavior
+        return false;
+      }
+      if (!t.hasLead()) { // unexpected behavior
+        return false;
+      }
+      return true;
+    }
+    catch (IllegalArgumentException e){ // unexpected behavior
+      return false;
+    }
+    catch (IllegalStateException e){ // unexpected behavior
+      return false;
+    }
   }
   /**
    * Verifies that a new Agent can be added to an existing Team.
