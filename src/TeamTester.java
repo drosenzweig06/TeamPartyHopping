@@ -327,7 +327,30 @@ public class TeamTester {
    * @return true if Agent is successfully added to Team; false otherwise
    */
   public static boolean testAddAgentToTeam() {
-    return false;
+    ArrayList<Agent> members = new ArrayList<>();
+    int x1 = 0;
+    int y1 = 0;
+    Agent a1 = new Lead(x1, y1);
+    members.add(a1);
+    int x2 = 20;
+    int y2 = 40;
+    Agent a2 = new Agent(x2, y2);
+    members.add(a2);
+    Team t = new Team(0, members);
+    if (t.getTeamSize() != 2) { // unexpected behavior
+      return false;
+    }
+    int x3 = 40;
+    int y3 = 50;
+    Agent a3 = new Agent(x3, y3);
+    t.addMember(a3);
+    if (t.getTeamSize() != 3) { // unexpected behavior
+      return false;
+    }
+    if (!t.contains(a3)){ // unexpected behavior
+      return false;
+    }
+    return true;
   }
   /**
    * Verifies that Team’s center coordinates are calculated correctly.
@@ -341,7 +364,37 @@ public class TeamTester {
    * @return true if center coordinates are calculated correctly; false otherwise
    */
   public static boolean testTeamCenter() {
-    return false;
+    ArrayList<Agent> members = new ArrayList<>();
+    int x1 = 0;
+    int y1 = 0;
+    Agent a1 = new Agent(x1, y1);
+    members.add(a1);
+    int x2 = 10;
+    int y2 = 20;
+    Agent a2 = new Agent(x2, y2);
+    members.add(a2);
+    int x3 = 20;
+    int y3 = 40;
+    Agent a3 = new Agent(x3, y3);
+    members.add(a3);
+    Team t = new Team(0, members);
+    if (t.getCenterX() != 10){ // unexpected behavior
+      return false;
+    }
+    if (t.getCenterY() != 20){ // unexpected behavior
+      return false;
+    }
+    int x4 = 30;
+    int y4 = 60;
+    Agent a4 = new Agent(x4, y4);
+    t.addMember(a4);
+    if (t.getCenterX() != 15){ // unexpected behavior
+      return false;
+    }
+    if (t.getCenterY() != 30){ // unexpected behavior
+      return false;
+    }
+    return true;
   }
   /**
    * Runs all tests and displays results
