@@ -62,10 +62,21 @@ public class TeamManagementSystem extends PApplet {
   @Override
   public void settings() {
     // TODO #1 call PApplet's size() method giving it 800 as the width and 600 as the height
+    size(800,600);
   }
   
   @Override
   public void setup() {
+    //SET PROCESSING?
+    imageMode(CENTER);
+    randGen = new Random();
+    objects = new ArrayList<Clickable>();
+    teams = new ArrayList<>(Team);
+    bgColor = color(81, 125, 168);
+    objects.add(new Party(200, 125));
+    objects.add(new Party(600, 150));
+    objects.add(new Party(400,450));
+    objects.add(new Agent(width / 2, height / 2));
     // TODO #2 add setProcessing calls (see writeup)
     // TODO #3 set the imageMode so the x,y coordinates indicate the center of an object
     // TODO #4 initialize randGen and the ArrayLists
@@ -77,6 +88,12 @@ public class TeamManagementSystem extends PApplet {
   
   @Override
   public void draw() {
+    background(bgColor);
+    for(Clickable clickable:objects) {
+      clickable.draw();
+    }
+    clearEmptyTeams();
+
     // TODO #6 draw the background using the bgColor value
     
     // TODO #14 draw the selection box if the user is currently selecting (see helper method below)
@@ -93,6 +110,7 @@ public class TeamManagementSystem extends PApplet {
   
   public void clearEmptyTeams() {
     // TODO #10 implement this method - remove all teams with NO members from the teams list
+
   }
   
   public void drawSelectionBox() {
@@ -110,6 +128,15 @@ public class TeamManagementSystem extends PApplet {
   
   @Override
   public void mousePressed() {
+    for(Clickable object:objects) {
+      if(object.isMouseOver()) {
+        object.mousePressed();
+        return;
+      }
+    }
+    isSelecting = true;
+    selectionStartX = mouseX;
+    selectionStartY = mouseY;
     // TODO #15 if the mouse is over any of the Clickable objects, call only that object's 
     // mousePressed method and end the method
 
