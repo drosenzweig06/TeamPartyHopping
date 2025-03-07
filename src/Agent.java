@@ -173,7 +173,7 @@ public class Agent extends Object implements Clickable {
         int mouseY = processing.mouseY;
         float agentX = this.xPos;
         float agentY = this.yPos;
-        float agentDiameter = this.diameter;
+        float agentDiameter = diameter;
         if (Math.pow(mouseX - agentX, 2) + Math.pow(mouseY - agentY, 2) <= Math.pow(agentDiameter/2.0, 2)){
             return true;
         }

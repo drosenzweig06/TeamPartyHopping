@@ -1,8 +1,4 @@
-import java.io.File;
-import processing.core.PImage;
-import processing.core.PApplet;
 import java.util.ArrayList;
-import java.util.Random;
 /**
  * This class models a Team for the CS300 P05 Team Party Hopping project
  */

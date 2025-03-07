@@ -3,7 +3,7 @@
  * However, unlike P02 we will send Agents to a Party by clicking on it,
  * so it will no longer have a character ID as in P02.
  */
-public class Party extends Object implements Clickable{
+public class Party implements Clickable{
     /**
      * The image associated with this Party
      */

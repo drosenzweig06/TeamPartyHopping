@@ -21,7 +21,9 @@
 //////////////////////// ASSISTANCE/HELP CITATIONS ////////////////////////////
 //
 // Persons:         Lectures by Mouna Kacem
-// Online Sources:
+// Online Sources: https://learn.zybooks.com/zybook/WISCCOMPSCI300Spring2025
+//       file:///C:/Users/tokol/Downloads/P05%20-%20Team%20Party%20Hopping.pdf
+//       https://canvas.wisc.edu/courses/447785/external_tools/20073
 //
 ///////////////////////////////////////////////////////////////////////////////
 import java.io.File;
@@ -309,7 +311,6 @@ public class TeamManagementSystem extends PApplet {
   public void keyPressed() {
     if(key == '.') {
       objects.add(new Agent(mouseX, mouseY));
-      System.out.println(objects);
     } else if(key == ',') {
       objects.add(new Lead(mouseX, mouseY));
     } else if(key == 'r') {
