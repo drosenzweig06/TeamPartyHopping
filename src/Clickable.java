@@ -1,8 +1,3 @@
-import java.io.File;
-import processing.core.PImage;
-import processing.core.PApplet;
-import java.util.ArrayList;
-import java.util.Random;
 /**
  * This interface models Clickable objects in a graphic application
  */

@@ -89,6 +89,13 @@ public class TeamManagementSystem extends PApplet {
     objects.add(new Party(600, 150, dice));
     objects.add(new Party(400, 450, ball));
     objects.add(new Agent(width / 2, height / 2));
+    // TODO #2 add setProcessing calls (see writeup)
+    // TODO #3 set the imageMode so the x,y coordinates indicate the center of an object
+    // TODO #4 initialize randGen and the ArrayLists
+    // TODO #5 initialize the bgColor with R = 81, G = 125, B = 168
+    
+    // TODO #7 add the party objects (see writeup for suggested locations, but feel free to change)
+    // TODO #8 add one agent at the center of the screen
   }
 
   /**
