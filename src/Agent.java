@@ -232,7 +232,7 @@ public class Agent extends Object implements Clickable {
                     yPos -= 3;
                 }
             }
-            else if (Math.abs(dy) > Math.abs(dx)){//dy should be greater, therefore dy = 2
+            else if (Math.abs(dy) > Math.abs(dx)){//dy should be greater, therefore |dy| = 2
                 if (dy > 0){ // should move up two
                     yPos += 2;
                     if (dx > 0){ // should move right one
@@ -252,7 +252,7 @@ public class Agent extends Object implements Clickable {
                     }
                 }
             }
-            else {//dx should be greater, or they are the same, therefore dx = 2
+            else { //dx should be greater, or they are the same, therefore |dx| = 2
                 if (dy > 0){ // should move up one
                     yPos += 1;
                     if (dx > 0){ // should move right two
