@@ -323,6 +323,9 @@ public class Agent extends Object implements Clickable {
      * @param t - the team to add this agent to
      */
     public void setTeam(Team t) {
+        if (this.team != null && this.team != t){
+            this.team.removeMember(this);
+        }
         this.team = t;
     }
     /**
