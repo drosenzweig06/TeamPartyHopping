@@ -244,7 +244,7 @@ public class TeamTester {
     ArrayList<Agent> members = new ArrayList<>();
     try {
       Team t = new Team (0, members);
-      return false; // IllegalStateException not thrown
+      return false; // IllegalArgumentException not thrown
     }
     catch (IllegalArgumentException e) {
       if (!e.getMessage().equals("Cant have null or no agents")){ //unexpected behavior
@@ -257,7 +257,6 @@ public class TeamTester {
       int x2 = 40;
       int y2 = 50;
       Agent a2 = new Agent(x2, y2);
-      members.add(a1);
       members.add(a2);
       Team t = new Team(0, members);
       t.removeMember(a1);
