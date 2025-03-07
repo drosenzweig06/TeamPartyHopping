@@ -97,7 +97,12 @@ public class Party extends Object implements Clickable{
      * TeamManagementSystem and sends them to this party.
      */
     public void mouseReleased() {
-
+        if (isMouseOver() && tms != null){
+            Team a = tms.getActiveTeam();
+            if(a != null){
+                a.sendToParty(this);
+            }
+        }
     }
     /**
      * Initializes the class TeamManagementSystem reference to the provided value.
