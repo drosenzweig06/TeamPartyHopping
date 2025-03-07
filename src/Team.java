@@ -175,10 +175,20 @@ public class Team {
      * Hint: the total width of this line is equal to ((diameter+3)*teamSize)-3.
      */
     public void lineUp() {
+        int size = members.size();
+        if (size == 0){
+            return;
+        }
         float centerX = getCenterX();
         float centerY = getCenterY();
-        for (int i = 0; i < members.size(); i++) {
-            members.get(i).setDestination(centerX + (i*10), centerY);
+        float space = Agent.diameter() + 3;
+        float totalWidth = space * size - 3;
+        float startX = centerX - totalWidth / 2;
+        for (int i = 0; i < size(); i++) {
+            Agent a1 = members.get(i);
+            float destX = startX + i * space + Agent.diameter() / 2.0f;
+            float destY = centerY;
+            a1.setDestination(destX, destY);
         }
     }
     /**
