@@ -34,12 +34,18 @@ public class Team {
      * @throws IllegalStateException - if the agents list contains more than one Lead
      */
     public Team(int color, ArrayList<Agent> agents) {
-        if(agents == null || agents.isEmpty()) {
+        int count = 0;
+        if (agents == null || agents.isEmpty()) {
             throw new IllegalArgumentException("Cant have null or no agents");
         }
-        //if(//MORE THAN ONE LEAD) {
-         //throw new IllegalStateException("Cant have more than one lead");
-        //}
+        for (int i = 0; i < members.size(); i++){
+            if(members.get(i) instanceof Lead){
+                count++;
+            }
+        }
+        if (color > 1){
+            throw new IllegalStateException("Cant have more than one lead");
+        }
         this.color = color;
         this.members = new ArrayList<>(agents);
         this.TEAM_ID = idGenerator++;
