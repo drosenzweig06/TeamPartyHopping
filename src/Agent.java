@@ -221,7 +221,8 @@ public class Agent extends Object implements Clickable {
      * If no destination is set, this method does nothing.
      */
     protected void move() {
-        float distance = processing.dist(xPos, yPos, destX, destY);
+        double dist = Math.sqrt(Math.pow(destX - xPos, 2) + Math.pow(destY - yPos, 2));
+        float distance = (float) dist;
         if (distance < 3){
             xPos = destX;
             yPos = destY;
