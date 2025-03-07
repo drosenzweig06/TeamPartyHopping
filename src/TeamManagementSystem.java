@@ -114,7 +114,8 @@ public class TeamManagementSystem extends PApplet {
   }
   
   public void drawSelectionBox() {
-    // TODO #13 implement this method, see below for details:
+    fill(135, 185, 201);
+    rect(selectionStartX, selectionStartY, width, height);
     
     // The user's selection box is defined by the selectionStartX/selectionStartY coordinates and
     // the current position of the mouse. However, PApplet's rectangle drawing method requires the

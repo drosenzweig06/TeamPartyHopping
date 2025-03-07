@@ -76,8 +76,8 @@ public class Party extends Object implements Clickable{
         }
         int mouseX = tms.mouseX;
         int mouseY = tms.mouseY;
-        int imageHeight = image.height;
-        int imageWidth = image.width;
+        int imageHeight = this.image.height;
+        int imageWidth = this.image.width;
         if (mouseX > x - .5 * imageWidth && mouseX < x + .5 * imageWidth){
             if (mouseY > y - .5 * imageHeight && mouseY < y + .5 * imageHeight){
                 return true;
