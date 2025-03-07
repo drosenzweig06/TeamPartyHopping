@@ -167,7 +167,17 @@ public class Agent extends Object implements Clickable {
      * @return true if the mouse is over this agent, false otherwise
      */
     public boolean isMouseOver() {
-    return false; //TODO: change
+        int mouseX = processing.mouseX;
+        int mouseY = processing.mouseY;
+        float agentX = this.xPos;
+        float agentY = this.yPos;
+        float agentDiameter = this.diameter;
+        if (Math.pow(mouseX - agentX, 2) + Math.pow(mouseY - agentY, 2) <= Math.pow(agentDiameter/2.0, 2)){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     /**
      * Helper method, reports whether this Agent is currently moving.
@@ -184,7 +194,11 @@ public class Agent extends Object implements Clickable {
      * but only if it is not already moving.
      */
     public void mousePressed() {
-
+        if (!isMoving()){
+            startDragging();
+            this.originalX = this.xPos;
+            this.originalY = this.yPos;
+        }
     }
     /**
      * Defines the behavior of this agent when the mouse is released. When the mouse is released,
@@ -193,7 +207,12 @@ public class Agent extends Object implements Clickable {
      * originalX/originalY values are reset to -1.
      */
     public void mouseReleased() {
-
+        stopDragging();
+        if (this.originalX == this.xPos && this.originalY == this.yPos){
+            this.isActive = true;
+        }
+        originalX = -1;
+        originalY = -1;
     }
     /**
      * Helper method to move an agent 3 units toward its destination, if one is set;
@@ -283,9 +302,9 @@ public class Agent extends Object implements Clickable {
      * @param y - this agent's new destination y-coordinate
      */
     public void setDestination(float x, float y) {
-        destX = x;
-        destY = y;
-        isActive = false;
+        this.destX = x;
+        this.destY = y;
+        this.isActive = false;
     }
     /**
      * Initializes the class PApplet reference to the provided value.
@@ -310,23 +329,21 @@ public class Agent extends Object implements Clickable {
      * the oldMouseX and oldMouseY fields to the current location of the mouse.
      */
     protected void startDragging() {
-        isDragging = true;
+        this.isDragging = true;
         oldMouseX = processing.mouseX;
         oldMouseY = processing.mouseY;
-        originalX = xPos;
-        originalY = yPos;
     }
     /**
      * Helper method, sets this agent to no longer be dragging.
      */
     protected void stopDragging() {
-        isDragging = false;
+        this.isDragging = false;
     }
     /**
      * Switches the active status of this agent to its opposite -
      * if false, makes it true; if true, makes it false.
      */
     public void toggleActive() {
-    isActive = !isActive;
+        this.isActive = !this.isActive;
     }
 }

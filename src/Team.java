@@ -148,10 +148,12 @@ public class Team {
      * @return true if this team currently has a Lead member, false otherwise
      */
     public boolean hasLead() {
-        for(int i = 0; i < members.size(); i++) {
-            if(members.get(i))
+        for (int i = 0; i < members.size(); i++){
+            if (members.get(i) instanceof Lead) {
+                return true;
+            }
         }
-
+        return false;
     }
     /**
      * Checks whether ALL members of a team have been selected

@@ -199,7 +199,6 @@ public class TeamTester {
   }
   /**
    * Verifies that creating a Team with multiple Leads throws an IllegalArgumentException.
-   * 
    * This test should:
    * - Create an ArrayList of Agents that includes multiple Lead instances
    * - Attempt to create a Team with this ArrayList

@@ -71,10 +71,18 @@ public class Party extends Object implements Clickable{
      * false otherwise.
      */
     public boolean isMouseOver() {
-        if(tms == null || image == null) {
+        if(tms == null || this.image == null) {
             return false;
         }
-        //KEEP WORKING ON
+        int mouseX = tms.mouseX;
+        int mouseY = tms.mouseY;
+        int imageHeight = this.image.height;
+        int imageWidth = this.image.width;
+        if (mouseX > x - .5 * imageWidth && mouseX < x + .5 * imageWidth){
+            if (mouseY > y - .5 * imageHeight && mouseY < y + .5 * imageHeight){
+                return true;
+            }
+        }
         return false;
     }
     /**
